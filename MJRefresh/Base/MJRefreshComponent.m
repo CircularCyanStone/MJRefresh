@@ -55,10 +55,6 @@
     [self removeObservers];
     
     if (newSuperview) { // 新的父控件
-        // 设置宽度
-        self.mj_w = newSuperview.mj_w;
-        // 设置位置
-        self.mj_x = -_scrollView.mj_insetL;
         
         // 记录UIScrollView
         _scrollView = (UIScrollView *)newSuperview;
@@ -66,7 +62,10 @@
         _scrollView.alwaysBounceVertical = YES;
         // 记录UIScrollView最开始的contentInset
         _scrollViewOriginalInset = _scrollView.mj_inset;
-        
+        // 设置宽度
+        self.mj_w = newSuperview.mj_w;
+        // 设置位置
+        self.mj_x = -_scrollView.mj_insetL;
         // 添加监听
         [self addObservers];
     }
